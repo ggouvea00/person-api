@@ -15,6 +15,7 @@ public class PersonMocks {
 
     public static PersonDTO createFakeDTO() {
         return PersonDTO.builder()
+                .name(NAME)
                 .cpf(CPF_NUMBER)
                 .birthDate("10-10-2020")
                 .build();

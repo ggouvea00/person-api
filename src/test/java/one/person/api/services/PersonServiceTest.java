@@ -6,6 +6,7 @@ import one.person.api.entities.Person;
 import one.person.api.repositories.PersonRepository;
 import one.person.api.services.PersonService;
 import one.person.api.utils.PersonMocks;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -35,8 +36,8 @@ public class PersonServiceTest {
         when(personMapper.toModel(personDTO)).thenReturn(expectedSavedPerson);
         when(personRepository.save(any(Person.class))).thenReturn(expectedSavedPerson);
 
-        Person successMessage = personService.create(personDTO);
+        Person personSuccess = personService.create(personDTO);
 
-       // Assertions.assertEquals(successMessage);
+        Assertions.assertNotNull(personSuccess.getId());
     }
 }
